@@ -29,8 +29,6 @@ services:
       - qtumd_mainnet_network
 
   qtum_mainnet:
-    ports:
-      - "3890:3890"
     image: qtum/qtum
     container_name: qtum_mainnet
     environment: 
