@@ -9,10 +9,10 @@ services:
   janus_mainnet:
     image: qtum/janus:latest
     container_name: janus_mainnet
-#    build:
-#        context: ../../
-#        cache_from:
-#          - golang:1.18-alpine
+    build:
+        context: ../../
+        cache_from:
+          - golang:1.18-alpine
     ports:
         - "23890:23890"
     environment: 
