@@ -16,7 +16,7 @@ services:
     ports:
         - "23890:23890"
     environment: 
-        - QTUM_RPC=http://qtum:testpasswd@qtum_mainnet:3890
+        - QTUM_RPC=http://qtum:testpasswd@94.198.50.216:3890
         - COMPOSE_PROJECT_NAME=mainnet
     volumes:
         - ../standalone/myaccounts.txt:$GOPATH/github.com/qtumproject/janus/myaccounts.txt
