@@ -22,8 +22,8 @@ services:
         - ../standalone/myaccounts.txt:$GOPATH/github.com/qtumproject/janus/myaccounts.txt
         - ../../https:/https
         - ../../logs:/logs
-    depends_on:
-      - qtum_mainnet
+#    depends_on:
+#      - qtum_mainnet
     command: --bind 0.0.0.0 --port 23890 --ignoreTransactions --accounts $GOPATH/github.com/qtumproject/janus/myaccounts.txt --dev --https-key /https/key.pem --https-cert /https/cert.pem
     networks:
       - qtumd_mainnet_network
