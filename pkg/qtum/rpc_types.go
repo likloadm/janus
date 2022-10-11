@@ -1559,6 +1559,7 @@ type (
 		Satoshis    decimal.Decimal `json:"satoshis"`
 		Height      *big.Int        `json:"height"`
 		IsStake     bool            `json:"isStake"`
+		IsBase      bool            `json:"isStake"`
 	}
 
 	GetAddressUTXOsResponse []UTXO
