@@ -37,7 +37,7 @@ var qtumTestNetParams = chaincfg.MainNetParams
 
 func init() {
 	qtumMainNetParams.PubKeyHashAddrID = 58
-	qtumMainNetParams.ScriptHashAddrID = 50
+	qtumMainNetParams.ScriptHashAddrID = 23
 
 	qtumTestNetParams.PubKeyHashAddrID = 120
 	qtumTestNetParams.ScriptHashAddrID = 110
