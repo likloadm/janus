@@ -54,5 +54,5 @@ func (a *Account) ToBase58Address(isMain bool) (string, error) {
 		return "", err
 	}
 
-	return addr.AddressScriptHash().String(), nil
+	return addr.AddressPubKeyHash().String(), nil
 }
