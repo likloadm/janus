@@ -71,7 +71,7 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
             return nil, eth.NewCallbackError(err.Error())
         }
         for _, mempoolVin := range qtumTx.Vins {
-            append(mempoolUxtoHashes, mempoolVin.ID)
+            mempoolUxtoHashes = append(mempoolUxtoHashes, mempoolVin.ID)
         }
 
 	}
