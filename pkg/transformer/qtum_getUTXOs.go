@@ -64,7 +64,13 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
 	}
 	for mempoolHash := range rawMempool {
 		qtumTx, err := p.GetTransaction(ctx, mempoolHash)
+		if err != nil {
+            return nil, eth.NewCallbackError(err.Error())
+        }
 	    qtumDecodedRawTx, err := p.DecodeRawTransaction(ctx, qtumTx.Hex)
+	    if err != nil {
+            return nil, eth.NewCallbackError(err.Error())
+        }
 	    p.GetDebugLogger().Log("msg", "mempoolHash vIns", "qtumDecodedRawTx.vIns", qtumDecodedRawTx.vIns)
 	}
 
