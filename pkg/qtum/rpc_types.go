@@ -1560,6 +1560,7 @@ type (
 		Height      *big.Int        `json:"height"`
 		IsStake     bool            `json:"isStake"`
 		IsBase      bool            `json:"isBase"`
+		Safe        bool            `json:"safe"`
 	}
 
 	GetAddressUTXOsResponse []UTXO
