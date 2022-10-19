@@ -345,6 +345,20 @@ func (m *Method) GetAddressUTXOs(ctx context.Context, req *GetAddressUTXOsReques
 	return resp, nil
 }
 
+func (m *Method) GetRawMempool(ctx context.Context, req *GetRawMempoolRequest) (*GetRawMempoolResponse, error) {
+	resp := new(GetRawMempoolResponse)
+	if err := m.RequestWithContext(ctx, MethodGetRawMempool, req, resp); err != nil {
+		if m.IsDebugEnabled() {
+			m.GetDebugLogger().Log("function", "GetRawMempool", "error", err)
+		}
+		return nil, err
+	}
+	if m.IsDebugEnabled() {
+		m.GetDebugLogger().Log("function", "GetRawMempool", "request", marshalToString(req), "msg", "Successfully got raw mempool")
+	}
+	return resp, nil
+}
+
 func (m *Method) ListUnspent(ctx context.Context, req *ListUnspentRequest) (resp *ListUnspentResponse, err error) {
 	if err := m.RequestWithContext(ctx, MethodListUnspent, req, &resp); err != nil {
 		if m.IsDebugEnabled() {

@@ -1587,6 +1587,29 @@ func (r *GetAddressUTXOsRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(params)
 }
 
+type (
+	GetRawMempoolRequest struct {
+	}
+
+	GetRawMempoolResponse []string
+)
+
+func (resp *GetRawMempoolResponse) UnmarshalJSON(data []byte) error {
+	// NOTE: do not use `GetTransactionReceiptResponse`, 'cause
+	// it may violate to infinite loop, while calling
+	// UnmarshalJSON interface
+	var txhashes []string
+	if err := json.Unmarshal(data, &txhashes); err != nil {
+		return err
+	}
+	*resp = GetRawMempoolResponse(txhashes)
+	return nil
+}
+
+func (r *GetRawMempoolRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal()
+}
+
 // ========== ListUnspent ============= //
 type (
 

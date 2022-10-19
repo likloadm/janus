@@ -58,6 +58,16 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
 		return nil, eth.NewCallbackError(err.Error())
 	}
 
+	rawMempool, err := p.Qtum.GetRawMempool(ctx)
+	if err != nil {
+		return nil, eth.NewCallbackError(err.Error())
+	}
+	for mempoolHash := range rawMempool {
+		qtumTx, err := p.GetTransaction(ctx, mempoolHash)
+	    qtumDecodedRawTx, err := p.DecodeRawTransaction(ctx, qtumTx.Hex)
+	    p.GetDebugLogger().Log("msg", "mempoolHash vIns", "qtumDecodedRawTx.vIns", qtumDecodedRawTx.vIns)
+	}
+
 	matureBlockHeight := big.NewInt(int64(p.Qtum.GetMatureBlockHeight()))
 
 	//Convert minSumAmount to Satoshis

@@ -44,6 +44,7 @@ const (
 	MethodGetStakingInfo        = "getstakinginfo"
 	MethodGetAddressBalance     = "getaddressbalance"
 	MethodGetAddressUTXOs       = "getaddressutxos"
+	MethodGetRawMempool         = "getrawmempool"
 	MethodCreateWallet          = "createwallet"
 	MethodLoadWallet            = "loadwallet"
 )
