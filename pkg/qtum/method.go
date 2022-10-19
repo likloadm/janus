@@ -347,14 +347,11 @@ func (m *Method) GetAddressUTXOs(ctx context.Context, req *GetAddressUTXOsReques
 
 func (m *Method) GetRawMempool(ctx context.Context) (*GetRawMempoolResponse, error) {
 	resp := new(GetRawMempoolResponse)
-	if err := m.RequestWithContext(ctx, MethodGetRawMempool, req, resp); err != nil {
+	if err := m.RequestWithContext(ctx, MethodGetRawMempool, nil, resp); err != nil {
 		if m.IsDebugEnabled() {
 			m.GetDebugLogger().Log("function", "GetRawMempool", "error", err)
 		}
 		return nil, err
-	}
-	if m.IsDebugEnabled() {
-		m.GetDebugLogger().Log("function", "GetRawMempool", "request", marshalToString(req), "msg", "Successfully got raw mempool")
 	}
 	return resp, nil
 }
