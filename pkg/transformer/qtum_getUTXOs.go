@@ -17,7 +17,7 @@ type ProxyQTUMGetUTXOs struct {
 }
 
 func Contains(sl []string, name string) bool {
-   for idx, v := range sl {
+   for _, v := range sl {
       if v == name {
          return true
       }
