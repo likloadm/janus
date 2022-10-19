@@ -1588,9 +1588,6 @@ func (r *GetAddressUTXOsRequest) MarshalJSON() ([]byte, error) {
 }
 
 type (
-	GetRawMempoolRequest struct {
-	}
-
 	GetRawMempoolResponse []string
 )
 
@@ -1604,10 +1601,6 @@ func (resp *GetRawMempoolResponse) UnmarshalJSON(data []byte) error {
 	}
 	*resp = GetRawMempoolResponse(txhashes)
 	return nil
-}
-
-func (r *GetRawMempoolRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal()
 }
 
 // ========== ListUnspent ============= //
