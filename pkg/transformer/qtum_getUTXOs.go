@@ -63,7 +63,7 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
 		return nil, eth.NewCallbackError(err.Error())
 	}
 
-	mempoolUxtoHashes := []
+	mempoolUxtoHashes := []string
 
 	for _, mempoolHash := range *rawMempool {
 		qtumTx, err := p.GetRawTransaction(ctx, mempoolHash, false)
