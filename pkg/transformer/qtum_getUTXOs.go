@@ -63,15 +63,11 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
 		return nil, eth.NewCallbackError(err.Error())
 	}
 	for _, mempoolHash := range *rawMempool {
-		qtumTx, err := p.GetTransaction(ctx, mempoolHash)
+		qtumTx, err := p.GetRawTransaction(ctx, mempoolHash, false)
 		if err != nil {
             return nil, eth.NewCallbackError(err.Error())
         }
-	    qtumDecodedRawTx, err := p.DecodeRawTransaction(ctx, qtumTx.Hex)
-	    if err != nil {
-            return nil, eth.NewCallbackError(err.Error())
-        }
-	    p.GetDebugLogger().Log("msg", "mempoolHash vIns", "qtumDecodedRawTx.vIns", qtumDecodedRawTx.Vins)
+	    p.GetDebugLogger().Log("msg", "mempoolHash vIns", "qtumDecodedRawTx.vIns", qtumTx.Vins)
 	}
 
 	matureBlockHeight := big.NewInt(int64(p.Qtum.GetMatureBlockHeight()))
