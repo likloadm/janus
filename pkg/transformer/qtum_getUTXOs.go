@@ -62,7 +62,7 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
 	if err != nil {
 		return nil, eth.NewCallbackError(err.Error())
 	}
-	for _, mempoolHash := range rawMempool {
+	for _, mempoolHash := range *rawMempool {
 		qtumTx, err := p.GetTransaction(ctx, mempoolHash)
 		if err != nil {
             return nil, eth.NewCallbackError(err.Error())
