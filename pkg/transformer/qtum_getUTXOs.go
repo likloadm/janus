@@ -16,13 +16,13 @@ type ProxyQTUMGetUTXOs struct {
 	*qtum.Qtum
 }
 
-func Contains(sl []string, name string) int {
+func Contains(sl []string, name string) bool {
    for idx, v := range sl {
       if v == name {
-         return idx
+         return true
       }
    }
-   return -1
+   return false
 }
 
 var _ ETHProxy = (*ProxyQTUMGetUTXOs)(nil)
