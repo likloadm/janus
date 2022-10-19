@@ -86,7 +86,7 @@ func (p *ProxyQTUMGetUTXOs) request(ctx context.Context, params eth.GetUTXOsRequ
 		ethUTXO.ScriptPubKey = utxo.Script
 		utxoType := ethUTXO.GetType()
 		ethUTXO.Type = utxoType.String()
-		ethUTXO.Safe = utxo.Safe
+		ethUTXO.Safe = true
 		if !allUtxoTypes {
 			if _, ok := utxoTypes[utxoType]; !ok {
 				continue
