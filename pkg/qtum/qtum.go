@@ -180,7 +180,7 @@ type HexAddressPrefix string
 
 const (
 	PrefixMainChainAddress    HexAddressPrefix = "3a"
-	PrefixTestChainAddress    HexAddressPrefix = "78"
+	PrefixTestChainAddress    HexAddressPrefix = "3a"
 	PrefixRegTestChainAddress HexAddressPrefix = PrefixTestChainAddress
 )
 
