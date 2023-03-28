@@ -140,7 +140,7 @@ func (c *Qtum) ChainId() int {
 	case "main":
 		chainId = 81
 	case "test":
-		chainId = 137
+		chainId = 8889
 	case "regtest":
 		chainId = 8890
 	default:
